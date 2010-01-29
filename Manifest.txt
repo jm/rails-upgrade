@@ -1,0 +1,14 @@
+History.txt
+Manifest.txt
+PostInstall.txt
+README.rdoc
+Rakefile
+bin/rails-upgrade
+lib/rails-upgrade.rb
+lib/rails-upgrade/cli.rb
+script/console
+script/destroy
+script/generate
+test/test_helper.rb
+test/test_rails-upgrade.rb
+test/test_rails-upgrade_cli.rb

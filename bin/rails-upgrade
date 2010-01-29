@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+#
+#  Created by Jeremy McAnally on 2010-1-23.
+#  Copyright (c) 2010. All rights reserved.
+
+require 'rubygems'
+require File.expand_path(File.dirname(__FILE__) + "/../lib/rails-upgrade")
+require "rails-upgrade/cli"
+require 'term/ansicolor'
+
+class String
+  include Term::ANSIColor
+end
+
+begin
+  RailsUpgrade::CLI.execute(STDOUT, ARGV)
+rescue StandardError => e
+  puts
+  puts "Error: ".red + e.message.white
+  puts "".reset
+end
