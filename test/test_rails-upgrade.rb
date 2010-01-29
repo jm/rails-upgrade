@@ -6,6 +6,6 @@ class TestRailsUpgrade < Test::Unit::TestCase
   end
   
   def test_truth
-    assert true
+    flunk("HAHAHA YEAH RIGHT.")
   end
 end
