@@ -17,5 +17,6 @@ begin
 rescue StandardError => e
   puts
   puts "Error: ".red + e.message.white
+  puts e.backtrace.join("\n").yellow
   puts "".reset
 end

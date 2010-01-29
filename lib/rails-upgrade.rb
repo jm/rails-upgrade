@@ -1,15 +1,15 @@
-$:.unshift(File.dirname(__FILE__)) unless
-  $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
+$:.unshift(File.dirname(__FILE__))
 
 module RailsUpgrade
-  VERSION = '0.0.1'
+  VERSION = '0.0.2'
 end
 
 require 'active_support'
 
-require 'rails-upgrade/errors'
+# This is ridiculous but I don't feel like fighting with require
+require File.dirname(__FILE__) + '/rails-upgrade/errors'
 
-require 'rails-upgrade/upgraders/routes'
-require 'rails-upgrade/upgraders/gems'
-require 'rails-upgrade/upgraders/check'
+require File.dirname(__FILE__) + '/rails-upgrade/upgraders/routes'
+require File.dirname(__FILE__) + '/rails-upgrade/upgraders/gems'
+require File.dirname(__FILE__) + '/rails-upgrade/upgraders/check'
 

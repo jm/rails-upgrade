@@ -21,10 +21,10 @@ module RailsUpgrade
         files = []
         ["find(:all", "find(:first", ":conditions =>", ":joins =>"].each do |v|
           lines = grep_for(v, "app/models/*")
-          files += extract_filenames(lines)
+          files += extract_filenames(lines) || []
         end
         
-        if files
+        unless files.empty?
           alert(
             "Soon-to-be-deprecated ActiveRecord calls", 
             "Methods such as find(:all), find(:first), finds with conditions, and the :joins option will soon be deprecated.",
@@ -50,10 +50,10 @@ module RailsUpgrade
         files = []
         ["map.", "ActionController::Routing::Routes", ".resources"].each do |v|
           lines = grep_for(v, "config/routes.rb")
-          files += extract_filenames(lines)
+          files += extract_filenames(lines) || []
         end
         
-        if files
+        unless files.empty?
           alert(
             "Old router API", 
             "The router API has totally changed.",
@@ -116,10 +116,10 @@ module RailsUpgrade
         files = []
         ["recipients ", "attachment ", "subject ", "from "].each do |v|
           lines = grep_for(v, "app/models/*")
-          files += extract_filenames(lines)
+          files += extract_filenames(lines) || []
         end
         
-        if files
+        unless files.empty?
           alert(
             "Old ActionMailer class API", 
             "You're using the old API in a mailer class.",

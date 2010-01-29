@@ -139,7 +139,7 @@ module RailsUpgrade
     class RouteObject
       def indent_lines(code_lines)
         if code_lines.length > 1
-          code_lines.map {|l| "#{@indent}#{l.chomp}"}.join("\n") + "\n"
+          code_lines.flatten.map {|l| "#{@indent}#{l.chomp}"}.join("\n") + "\n"
         else
           "#{@indent}#{code_lines.shift}"
         end
